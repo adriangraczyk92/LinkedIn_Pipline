@@ -40,8 +40,8 @@ pipeline {
 		stage('Generate_File_exe') {
 			
             steps {
-			
-			   bat 'pyinstaller --hidden-import win32timezone --noconsole "D:/Jenkins/Jenkins pipline pytest/Test_login_LinkedIn.py"'
+			   bat 'cd /d D:\\Jenkins\\Jenkins pipline pytest'
+			   bat 'pyinstaller --hidden-import win32timezone --noconsole Test_login_LinkedIn.py"'
             }
         }
    
