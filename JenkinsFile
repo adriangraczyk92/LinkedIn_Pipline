@@ -24,7 +24,6 @@ pipeline {
             }
         }
 		stage('Reports') {
-	
 		steps {
 			script {
 			
@@ -37,6 +36,14 @@ pipeline {
 					])
 					}
 		}
-   }
+		}
+		stage('Generate_File_exe') {
+			
+            steps {
+			
+			   bat 'pyinstaller --hidden-import win32timezone --noconsole Test_login_LinkedIn.py'
+            }
+        }
+   
 }
 }
