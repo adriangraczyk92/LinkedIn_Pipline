@@ -14,13 +14,10 @@ pipeline {
             }
 		}
 		stage('Test') {
-		environment {
-			Sciezka = '"D:/Jenkins/Jenkins pipline pytest/allure-results"'
-						}
 			
             steps {
                bat 'venv/Lib/site-packages/Lib/site-packages/Scripts/activate.bat'
-			   bat 'pytest -v -s --alluredir ${Sciezka} Test_login_LinkedIn.py'
+			   bat 'pytest -v -s --alluredir "D:/Jenkins/Jenkins pipline pytest/allure-results" Test_login_LinkedIn.py'
             }
         }
 		stage('Reports') {
