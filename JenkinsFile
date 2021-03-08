@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+	
+    stages {
+		
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/adriangraczyk92/LinkedIn_Pipline.git']]])
+            }
+        }
+		stage('Build') {
+            steps {
+               git 'https://github.com/adriangraczyk92/LinkedIn_Pipline.git'
+            }
+		}
+		stage('Test') {
+		environment {
+			Sciezka = '"D:/Jenkins/Jenkins pipline pytest/allure-results"'
+						}
+			
+            steps {
+               bat 'venv/Lib/site-packages/Lib/site-packages/Scripts/activate.bat'
+			   bat 'pytest -v -s --alluredir ${Sciezka} Test_login_LinkedIn.py'
+            }
+        }
+		stage('Reports') {
+	
+		steps {
+			script {
+			
+					allure([
+							includeProperties: false,
+							jdk: '',
+							properties: [],
+							reportBuildPolicy: 'ALWAYS',
+							results: [[path: 'D:/Jenkins/Jenkins pipline pytest/allure-results']]
+					])
+					}
+		}
+   }
+}
+}
