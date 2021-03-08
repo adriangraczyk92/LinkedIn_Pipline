@@ -20,7 +20,7 @@ pipeline {
 			
             steps {
                bat 'venv/Lib/site-packages/Lib/site-packages/Scripts/activate.bat'
-			   bat 'pytest -v -s --alluredir ${Sciezka} Test_login_LinkedIn.py'
+			   bat 'pytest -v -s --alluredir Test_login_LinkedIn.py'
             }
         }
 		stage('Reports') {
