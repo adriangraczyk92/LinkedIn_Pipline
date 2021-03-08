@@ -29,7 +29,7 @@ pipeline {
 							jdk: '',
 							properties: [],
 							reportBuildPolicy: 'ALWAYS',
-							results: [[path: 'D:/Jenkins/Jenkins pipline pytest/allure-results']]
+							results: [[path: "D:/Jenkins/Jenkins pipline pytest/allure-results"]]
 					])
 					}
 		}
