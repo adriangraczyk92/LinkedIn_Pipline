@@ -41,7 +41,7 @@ pipeline {
 			
             steps {
 			
-			   bat 'pyinstaller --hidden-import win32timezone --noconsole "D:\Jenkins\Jenkins pipline pytest\Test_login_LinkedIn.py"'
+			   bat 'pyinstaller --hidden-import win32timezone --noconsole D:/Jenkins/Jenkins pipline pytest/Test_login_LinkedIn.py'
             }
         }
    
